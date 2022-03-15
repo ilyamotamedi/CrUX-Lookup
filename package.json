@@ -1,0 +1,52 @@
+{
+  "name": "crux-lookup",
+  "version": "1.0.0",
+  "description": "Simple utility for grabbing URL-/origin-level Core Web Vitals using the Chrome User Experience Report (CrUX) API",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "version": "npm run format && git add -A src",
+    "preversion": "npm run lint",
+    "postversion": "git push && git push --tags"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyamotamedi/CrUX-Lookup.git"
+  },
+  "keywords": [
+    "CrUX",
+    "Chrome User Experience Report",
+    "CWV"
+  ],
+  "author": "Ilya Motamedi",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ilyamotamedi/CrUX-Lookup/issues"
+  },
+  "homepage": "https://github.com/ilyamotamedi/CrUX-Lookup#readme",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/minimist": "^1.2.2",
+    "jest": "^27.5.1",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.3",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "crux-api": "^2.0.0",
+    "dotenv": "^16.0.0",
+    "minimist": "^1.2.5",
+    "node-fetch": "^3.2.3"
+  }
+}
