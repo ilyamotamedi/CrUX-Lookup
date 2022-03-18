@@ -5,6 +5,9 @@
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "bin": {
+    "crux-lookup": "lib/index.js"
+  },
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",

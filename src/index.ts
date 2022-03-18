@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { singleCommand } from './commands/singleCommand.js';
 
 import { Command } from 'commander';
