@@ -23,9 +23,11 @@ url URL for which to get CrUX record
 
 Options:
 `-r, --origin` Lookup the origin of the URL
+
 `-j, --json` Output raw JSON from CrUX
+
 `-o, --output <file>` Valid filepath for saving lookup results (forces JSON output)
 
 **Looking up multiple URLs and/or origins**
 
-*coming soon!*
+_coming soon!_
