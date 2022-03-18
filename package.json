@@ -1,7 +1,7 @@
 {
   "name": "crux-lookup",
-  "version": "0.0.1",
-  "description": "Simple utility for grabbing URL-/origin-level Core Web Vitals using the Chrome User Experience Report (CrUX) API",
+  "version": "0.0.2",
+  "description": "A simple CLI utility for grabbing URL-/origin-level Core Web Vitals using the Chrome User Experience Report (CrUX) API",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -26,7 +26,8 @@
   "keywords": [
     "CrUX",
     "Chrome User Experience Report",
-    "CWV"
+    "CWV",
+    "Core Web Vitals"
   ],
   "author": "Ilya Motamedi",
   "license": "GPL-3.0-or-later",
