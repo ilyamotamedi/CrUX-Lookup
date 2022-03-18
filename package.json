@@ -1,6 +1,6 @@
 {
   "name": "crux-lookup",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A simple CLI utility for grabbing URL-/origin-level Core Web Vitals using the Chrome User Experience Report (CrUX) API",
   "type": "module",
   "main": "lib/index.js",
@@ -11,7 +11,7 @@
   "scripts": {
     "test": "jest --config jestconfig.json",
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.ts\" \"lib/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
