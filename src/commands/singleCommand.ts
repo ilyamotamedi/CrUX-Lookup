@@ -19,12 +19,11 @@ export const singleCommand = (url: string, options: any) => {
           }
         });
       } else if (options.json) {
-        spinner.succeed(`Found this for ${url}:`);
-        console.log(JSON.stringify(data, null, 2));
+        spinner.succeed(`Found this for ${options.origin ? 'origin' : ''} ${url}:\n${JSON.stringify(data, null, 2)}`);
       } else {
         const transformedCrUXData = transformCrUXData(data);
 
-        spinner.succeed(`Found this for ${url}:`);
+        spinner.succeed(`Found this for ${options.origin ? 'origin' : ''} ${url}:`);
         paintHistograms(transformedCrUXData);
       }
     })

@@ -6,7 +6,7 @@ import { createQueryRecord, SuccessResponse } from 'crux-api';
 
 import { validateUrl, validateWebsite } from './siteUtil.js';
 
-const queryRecord = createQueryRecord({ key: process.env.CRUX_API_KEY || '', fetch: fetch });
+const queryRecord = createQueryRecord({ key: process.env.CRUX_API_KEY || '', fetch });
 
 const singleLookup = async (url: string, origin?: boolean): Promise<SuccessResponse | null> => {
   if (!validateUrl(url)) {
@@ -14,25 +14,25 @@ const singleLookup = async (url: string, origin?: boolean): Promise<SuccessRespo
   } else if (!(await validateWebsite(url))) {
     throw new Error(`Site doesn't exist: ${url}`);
   } else {
-    let paramsObj = origin ? { origin: url } : { url: url };
+    const paramsObj = origin ? { origin: url } : { url };
     return queryRecord(paramsObj);
   }
 };
 
-interface simplifiedCruxHistogram {
+interface SimplifiedCruxHistogram {
   redStop: number;
   yellowStop: number;
   greenStop: number;
   p75: number | string;
 }
 
-const transformCrUXData = (data: SuccessResponse | null): { [k: string]: simplifiedCruxHistogram } => {
+const transformCrUXData = (data: SuccessResponse | null): { [k: string]: SimplifiedCruxHistogram } => {
   if (!data) throw new Error('No data returned from CrUX');
   const metrics: { [k: string]: any } = data['record']['metrics'];
-  const fcpHistogram = metrics['first_contentful_paint']['histogram'],
-    lcpHistogram = metrics['largest_contentful_paint']['histogram'],
-    clsHistogram = metrics['cumulative_layout_shift']['histogram'],
-    fidHistogram = metrics['first_input_delay']['histogram'];
+  const fcpHistogram = metrics['first_contentful_paint']['histogram'];
+  const lcpHistogram = metrics['largest_contentful_paint']['histogram'];
+  const clsHistogram = metrics['cumulative_layout_shift']['histogram'];
+  const fidHistogram = metrics['first_input_delay']['histogram'];
 
   return {
     fcp: {
@@ -62,4 +62,4 @@ const transformCrUXData = (data: SuccessResponse | null): { [k: string]: simplif
   };
 };
 
-export { queryRecord, singleLookup, transformCrUXData, simplifiedCruxHistogram };
+export { queryRecord, singleLookup, transformCrUXData, SimplifiedCruxHistogram };

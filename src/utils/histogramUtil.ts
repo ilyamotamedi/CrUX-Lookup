@@ -1,6 +1,6 @@
-import { simplifiedCruxHistogram } from './cruxUtil';
+import { SimplifiedCruxHistogram } from './cruxUtil';
 
-const colorFromPerecentage = (currentPercentage: number, histogram: simplifiedCruxHistogram): string => {
+const colorFromPerecentage = (currentPercentage: number, histogram: SimplifiedCruxHistogram): string => {
   if (currentPercentage < histogram['greenStop'] * 100) {
     return '\x1b[32m'; // green
   } else if (currentPercentage < histogram['greenStop'] * 100 + histogram['yellowStop'] * 100) {
@@ -10,12 +10,12 @@ const colorFromPerecentage = (currentPercentage: number, histogram: simplifiedCr
   }
 };
 
-const paintHistogram = (label: string, histogram: simplifiedCruxHistogram): void => {
+const paintHistogram = (label: string, histogram: SimplifiedCruxHistogram): void => {
   process.stdout.write(`\x1b[0m\n ${label} \n`); // reset color
   const p75String = `<\x1b[0m p75: ${histogram['p75']}${label === 'CLS' ? '' : 'ms'}`;
 
   for (let i = 1; i < 101; i++) {
-    let currentColor = colorFromPerecentage(i, histogram);
+    const currentColor = colorFromPerecentage(i, histogram);
     if (i % 25 === 0) {
       process.stdout.write(`${currentColor}\u2588${i === 75 ? p75String : ''}\n`); // add p75 marker 3/4 of the way down the bar
     } else {
@@ -24,11 +24,12 @@ const paintHistogram = (label: string, histogram: simplifiedCruxHistogram): void
   }
 };
 
-const paintHistograms = (cruxData: { [k: string]: simplifiedCruxHistogram }): void => {
+const paintHistograms = (cruxData: { [k: string]: SimplifiedCruxHistogram }): void => {
   paintHistogram('FCP', cruxData['fcp']);
   paintHistogram('LCP', cruxData['lcp']);
   paintHistogram('CLS', cruxData['cls']);
   paintHistogram('FID', cruxData['fid']);
+  process.stdout.write('\x1b[0m\n'); // reset color
 };
 
 export default paintHistograms;
