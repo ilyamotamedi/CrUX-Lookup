@@ -1,4 +1,4 @@
-import singleLookup from '../actions/singleLookup.js';
+import { singleLookup } from '../utils/cruxUtil.js';
 import { transformCrUXData } from '../utils/cruxUtil.js';
 import paintHistograms from '../utils/histogramUtil.js';
 

@@ -2,9 +2,22 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import fetch from 'node-fetch';
-import { createQueryRecord, SuccessResponse, ErrorResponse } from 'crux-api';
+import { createQueryRecord, SuccessResponse } from 'crux-api';
+
+import { validateUrl, validateWebsite } from './siteUtil.js';
 
 const queryRecord = createQueryRecord({ key: process.env.CRUX_API_KEY || '', fetch: fetch });
+
+const singleLookup = async (url: string, origin?: boolean): Promise<SuccessResponse | null> => {
+  if (!validateUrl(url)) {
+    throw new Error(`Invalid URL: ${url}`);
+  } else if (!(await validateWebsite(url))) {
+    throw new Error(`Site doesn't exist: ${url}`);
+  } else {
+    let paramsObj = origin ? { origin: url } : { url: url };
+    return queryRecord(paramsObj);
+  }
+};
 
 interface simplifiedCruxHistogram {
   redStop: number;
@@ -49,4 +62,4 @@ const transformCrUXData = (data: SuccessResponse | null): { [k: string]: simplif
   };
 };
 
-export { queryRecord, transformCrUXData, simplifiedCruxHistogram };
+export { queryRecord, singleLookup, transformCrUXData, simplifiedCruxHistogram };
