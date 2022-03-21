@@ -31,13 +31,6 @@ const ensureConfig = (): void => {
     );
     process.exit(1);
   }
-
-  if (process.env.CRUX_API_KEY.length !== 36) {
-    spinner.fail(
-      `Stored API key is invalid. Update it by running \`crux-lookup config --updateKey <key>\`\n${errorSuffix}`,
-    );
-    process.exit(1);
-  }
   spinner.succeed('Configuration looks good');
 };
 
