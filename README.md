@@ -11,7 +11,7 @@ npm i -g crux-lookup
 ```
 
 2. Add a CrUX API Key
-   You can generate a (free) CrUX API key (here)[https://developers.google.com/web/tools/chrome-user-experience-report/api/guides/getting-started].
+   You can generate a (free) CrUX API key [here](https://developers.google.com/web/tools/chrome-user-experience-report/api/guides/getting-started).
 
 ```shell
 crux-lookup config --updateKey <your API key>
