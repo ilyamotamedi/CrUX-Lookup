@@ -41,7 +41,7 @@ Options:
 **Looking up a single URL or origin**
 
 ```shell
-$ crux-lookup single https://example.com
+$ crux-lookup single <url>
 ```
 
 Arguments:
