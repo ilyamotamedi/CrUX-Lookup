@@ -1,8 +1,8 @@
 # CrUX-Lookup
 
 A simple CLI utility for grabbing URL-/origin-level [Core Web Vitals](https://web.dev/vitals) histograms using the Chrome User Experience Report (CrUX) API. Results are returned visually or as unaltered JSON from the CrUX API.
+![Screen Shot 2022-03-21 at 18 45 24](https://user-images.githubusercontent.com/16639987/159375280-457f18ee-e6ae-4e33-9dd9-42847d041693.png)
 
-<img width="794" alt="Screen Shot 2022-03-21 at 16 06 02" src="https://user-images.githubusercontent.com/16639987/159354949-9820e9e1-1627-4946-9d25-54c608c5ee78.png">
 
 ### Getting Started
 
