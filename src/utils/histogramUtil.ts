@@ -10,8 +10,16 @@ const colorFromPerecentage = (currentPercentage: number, histogram: SimplifiedCr
   }
 };
 
+const printHistogramPercent = (histogram: SimplifiedCruxHistogram): string => {
+  const formattedGreenStop = `${(histogram['greenStop'] * 100).toFixed(2)}%`;
+  const formattedYellowStop = `${(histogram['yellowStop'] * 100).toFixed(2)}%`;
+  const formattedRedStop = `${(histogram['redStop'] * 100).toFixed(2)}%`;
+
+  return `\x1b[32m${formattedGreenStop}%\x1b[0m | \x1b[33m${formattedYellowStop}%\x1b[0m | \x1b[31m${formattedRedStop}%`;
+};
+
 const paintHistogram = (label: string, histogram: SimplifiedCruxHistogram): void => {
-  process.stdout.write(`\x1b[0m\n ${label} \n`); // reset color
+  process.stdout.write(`\x1b[0m\n ${label}: ${printHistogramPercent(histogram)}\n`); // reset color
   const p75String = `<\x1b[0m p75: ${histogram['p75']}${label === 'CLS' ? '' : 'ms'}`;
 
   for (let i = 1; i < 101; i++) {
