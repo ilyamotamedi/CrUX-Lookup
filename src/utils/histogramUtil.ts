@@ -15,7 +15,7 @@ const printHistogramPercent = (histogram: SimplifiedCruxHistogram): string => {
   const formattedYellowStop = `${(histogram['yellowStop'] * 100).toFixed(2)}%`;
   const formattedRedStop = `${(histogram['redStop'] * 100).toFixed(2)}%`;
 
-  return `\x1b[32m${formattedGreenStop}%\x1b[0m | \x1b[33m${formattedYellowStop}%\x1b[0m | \x1b[31m${formattedRedStop}%`;
+  return `\x1b[32m${formattedGreenStop}\x1b[0m | \x1b[33m${formattedYellowStop}\x1b[0m | \x1b[31m${formattedRedStop}`;
 };
 
 const paintHistogram = (label: string, histogram: SimplifiedCruxHistogram): void => {

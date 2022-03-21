@@ -21,11 +21,21 @@ const ensureEnv = (): void => {
 
 const ensureConfig = (): void => {
   const spinner = ora('Checking configuration').start();
+  const errorSuffix = `You can get a (free) CrUX API key at https://developers.google.com/web/tools/chrome-user-experience-report/api/guides/getting-started`;
 
   ensureEnv();
 
   if (!process.env.CRUX_API_KEY) {
-    spinner.fail('Please add an API key first by running `crux-lookup config --updateKey <key>`');
+    spinner.fail(
+      `Please add a valid CrUX API key first by running \`crux-lookup config --updateKey <key>\`\n${errorSuffix}`,
+    );
+    process.exit(1);
+  }
+
+  if (process.env.CRUX_API_KEY.length !== 36) {
+    spinner.fail(
+      `Stored API key is invalid. Update it by running \`crux-lookup config --updateKey <key>\`\n${errorSuffix}`,
+    );
     process.exit(1);
   }
   spinner.succeed('Configuration looks good');
