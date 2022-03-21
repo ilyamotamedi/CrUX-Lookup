@@ -1,14 +1,17 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import { ensureConfig } from './configUtil.js';
 
 import fetch from 'node-fetch';
 import { createQueryRecord, SuccessResponse } from 'crux-api';
 
 import { validateUrl, validateWebsite } from './siteUtil.js';
 
-const queryRecord = createQueryRecord({ key: process.env.CRUX_API_KEY || '', fetch });
+const newQueryRecord = () => {
+  ensureConfig();
+  return createQueryRecord({ key: process.env.CRUX_API_KEY || '', fetch });
+};
 
 const singleLookup = async (url: string, origin?: boolean): Promise<SuccessResponse | null> => {
+  const queryRecord = newQueryRecord();
   if (!validateUrl(url)) {
     throw new Error(`Invalid URL: ${url}`);
   } else if (!(await validateWebsite(url))) {
@@ -62,4 +65,4 @@ const transformCrUXData = (data: SuccessResponse | null): { [k: string]: Simplif
   };
 };
 
-export { queryRecord, singleLookup, transformCrUXData, SimplifiedCruxHistogram };
+export { singleLookup, transformCrUXData, SimplifiedCruxHistogram };

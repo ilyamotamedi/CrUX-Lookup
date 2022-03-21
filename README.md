@@ -2,15 +2,42 @@
 
 A simple CLI utility for grabbing URL-/origin-level Core Web Vitals using the Chrome User Experience Report (CrUX) API. Results are returned visually or as Raw JSON from the CrUX API.
 
-### Installation
+### Getting Started
 
-Install the utility via NPM
+1. Install the utility via NPM
 
 ```shell
 npm i -g crux-lookup
 ```
 
+2. Add a CrUX API Key
+   You can generate a (free) CrUX API key (here)[https://developers.google.com/web/tools/chrome-user-experience-report/api/guides/getting-started].
+
+```shell
+crux-lookup config --updateKey <your API key>
+```
+
 ### Usage
+
+**Viewing, removing or changing your stored API Key**
+
+To view your key:
+
+```shell
+crux-lookup config
+```
+
+To remove your key:
+
+```shell
+crux-lookup config --removeKey
+```
+
+To update your key:
+
+```shell
+  crux-lookup config --updateKey <your API key>
+```
 
 **Looking up a single URL or origin**
 
@@ -24,7 +51,7 @@ Arguments:
 
 Options:
 
-- `-r, --origin` Lookup the origin of the URL
+- `-r, --origin` Lookup the submitted URL as an origin
 - `-j, --json` Output raw JSON from CrUX
 - `-o, --output <file>` Valid filepath for saving lookup results (forces JSON output)
 
