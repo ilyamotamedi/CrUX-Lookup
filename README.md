@@ -2,7 +2,7 @@
 
 A simple CLI utility for grabbing URL-/origin-level Core Web Vitals using the Chrome User Experience Report (CrUX) API. Results are returned visually or as Raw JSON from the CrUX API.
 
-![Screen Shot 2022-03-21 at 15 46 24](https://user-images.githubusercontent.com/16639987/159352096-0abe7382-9ad6-453e-af1a-5f0dac0ca7cd.png)
+<img width="794" alt="Screen Shot 2022-03-21 at 16 06 02" src="https://user-images.githubusercontent.com/16639987/159354949-9820e9e1-1627-4946-9d25-54c608c5ee78.png">
 
 ### Getting Started
 
