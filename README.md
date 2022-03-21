@@ -27,23 +27,12 @@ To view your key:
 crux-lookup config
 ```
 
-To remove your key:
+Options:
 
-```shell
-crux-lookup config --removeKey
-```
-
-To update your key:
-
-```shell
-  crux-lookup config --updateKey <your API key>
-```
+-  `--updateKey <key>` Add/update a CrUX API key to use for queries
+-  `--removeKey` Remove stored CrUX API key from configuration
 
 **Looking up a single URL or origin**
-
-```shell
-crux-lookup single https://www.google.com # make sure you enter the full origin URL, i.e. https://www.google.com, not https://google.com
-```
 
 Arguments:
 
