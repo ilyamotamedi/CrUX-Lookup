@@ -6,7 +6,7 @@ import { configCommand } from './commands/configCommand.js';
 import { Command } from 'commander';
 const program = new Command();
 
-program.name('crux-lookup').description('Simple utility for looking up CRUX data').version('0.1.0');
+program.name('crux-lookup').description('Simple utility for looking up CRUX data').version('0.1.1');
 
 program
   .command('single')

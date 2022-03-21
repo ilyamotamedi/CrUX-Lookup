@@ -1,7 +1,7 @@
 import fs from 'fs';
 import ora from 'ora';
 
-import { localEnv, ensureEnv } from '../utils/configUtil.js';
+import { localEnv, ensureEnv, noKeySuffix } from '../utils/configUtil.js';
 
 export const configCommand = (options: any): void => {
   const spinner = ora('Updating configuration').start();
@@ -26,14 +26,17 @@ export const configCommand = (options: any): void => {
       fs.writeFile(localEnv, `CRUX_API_KEY=${options.updateKey}\n`, (err) => {
         if (err) {
           spinner.fail(`Failed to update API key: ${err}`);
-          return;
         }
       });
       process.env.CRUX_API_KEY = options.updateKey;
       spinner.succeed('Updated API key in configuration');
       return;
     } else {
-      spinner.succeed(`Currently stored CrUX API key is ${process.env.CRUX_API_KEY}`);
+      const resultString = !!process.env.CRUX_API_KEY
+        ? `Currently stored CrUX API key is ${process.env.CRUX_API_KEY}`
+        : `Add a CrUX API key to your configuration by running \`crux-lookup config --updateKey <key>\`\n${noKeySuffix}`;
+
+      spinner.succeed(resultString);
     }
   } catch (err) {
     spinner.fail(`Error updating configuration\n${err}`);

@@ -17,7 +17,8 @@
     "prepublishOnly": "npm test && npm run lint",
     "version": "npm run format && git add -A src",
     "preversion": "npm run lint",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "postinstall": "echo \"Successfully nstalled crux-lookup v$(crux-lookup --version)\" && crux-lookup config"
   },
   "files": [
     "lib/**/*"

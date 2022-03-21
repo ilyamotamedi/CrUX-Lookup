@@ -19,19 +19,20 @@ const ensureEnv = (): void => {
   dotenv.config({ path: localEnv });
 };
 
+const noKeySuffix = `You can get a (free) CrUX API key at https://developers.google.com/web/tools/chrome-user-experience-report/api/guides/getting-started`;
+
 const ensureConfig = (): void => {
   const spinner = ora('Checking configuration').start();
-  const errorSuffix = `You can get a (free) CrUX API key at https://developers.google.com/web/tools/chrome-user-experience-report/api/guides/getting-started`;
 
   ensureEnv();
 
   if (!process.env.CRUX_API_KEY) {
     spinner.fail(
-      `Please add a valid CrUX API key first by running \`crux-lookup config --updateKey <key>\`\n${errorSuffix}`,
+      `Please add a valid CrUX API key first by running \`crux-lookup config --updateKey <key>\`\n${noKeySuffix}`,
     );
     process.exit(1);
   }
   spinner.succeed('Configuration looks good');
 };
 
-export { localEnv, ensureEnv, ensureConfig };
+export { localEnv, ensureEnv, ensureConfig, noKeySuffix };
