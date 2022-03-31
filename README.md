@@ -45,7 +45,8 @@ Options:
 $ crux-lookup single <url>
 ```
 
-***Optional `single` subcommand***
+**Optional `single` subcommand**
+
 As of v0.3.0, the `single` subcommand can be omitted:
 ```shell
 $ crux-lookup <url>
