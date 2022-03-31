@@ -45,6 +45,12 @@ Options:
 $ crux-lookup single <url>
 ```
 
+***Optional `single` subcommand***
+As of v0.3.0, the `single` subcommand can be omitted:
+```shell
+$ crux-lookup <url>
+```
+
 Arguments:
 
 - `url` URL for which to get CrUX record

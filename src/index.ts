@@ -9,7 +9,7 @@ const program = new Command();
 program.name('crux-lookup').description('Simple utility for looking up CRUX data').version('0.1.1');
 
 program
-  .command('single')
+  .command('single', { isDefault: true })
   .description('Lookup a CrUX record for a single URL')
   .argument('<url>', 'URL for which to get CrUX record')
   .option('-r, --origin', 'Lookup the origin of the URL')
