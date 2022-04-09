@@ -23,15 +23,15 @@ Report a bug by [opening a new issue](https://github.com/ilyamotamedi/crux-looku
 
 ## Write bug reports with detail, background, and sample code
 
-**Great Bug Reports** tend to have:
+Please make sure to include:
 
 - A quick summary and/or background
 - Steps to reproduce
   - Be specific
-  - Give sample code if you can
-- What you expected would happen
-- What actually happens
-- Notes (possibly including why you think this might be happening, or solutions you tried that didn't work)
+  - Provide references to code if applicable
+- What you expected to happen
+- What actually happened
+- Any notes or other insights (e.g. why you think this might be happening, solutions you tried that didn't work, etc.)
 
 ## Use a Consistent Coding Style
 Please configure your linter to follow the .prettierrc config checked into this repo.
