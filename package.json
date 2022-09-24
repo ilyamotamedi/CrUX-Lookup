@@ -1,6 +1,6 @@
 {
   "name": "crux-lookup",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A simple CLI utility for grabbing URL-/origin-level Core Web Vitals using the Chrome User Experience Report (CrUX) API",
   "type": "module",
   "main": "lib/index.js",
