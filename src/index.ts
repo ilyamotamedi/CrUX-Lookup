@@ -6,7 +6,7 @@ import { configCommand } from './commands/configCommand.js';
 import { Command } from 'commander';
 const program = new Command();
 
-program.name('crux-lookup').description('Simple utility for looking up CRUX data').version('0.5.0');
+program.name('crux-lookup').description('Simple utility for looking up CrUX data').version('0.6.0');
 
 program
   .command('single', { isDefault: true })
@@ -22,8 +22,8 @@ program
 program
   .command('config')
   .description('Add, change, or remove configuration settings')
-  .option('--updateKey <key>', 'CrUX API key to use for queries')
-  .option('--removeKey', 'Remove CrUX API key from configuration')
+  .option('-u, --updateKey <key>', 'CrUX API key to use for queries')
+  .option('-r, --removeKey', 'Remove CrUX API key from configuration')
   .action((options) => {
     configCommand(options);
   });
