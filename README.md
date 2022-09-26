@@ -1,7 +1,7 @@
 # CrUX-Lookup
 
 A simple CLI utility for grabbing URL-/origin-level <a href="https://web.dev/vitals" target="_blank" rel="noopener noreferrer">Core Web Vitals</a> histograms using the Chrome User Experience Report (CrUX) API. Results are returned visually or as unaltered JSON from the CrUX API.
-<img width="1136" alt="Screen Shot 2022-04-05 at 11 20 16" src="https://user-images.githubusercontent.com/16639987/161788178-933e2e50-1dc1-441e-8e03-a4c112e5864a.png">
+<img width="878" alt="Screen Shot 2022-09-26 at 10 45 24" style="margin:auto;display:block;" src="https://user-images.githubusercontent.com/16639987/192307475-d8b59a8f-be60-4837-a392-c0b457afed1b.png">
 ### _Much_ Faster than using PageSpeed Insights, WebPageTest, etc. for CrUX data
 crux-lookup is very quick, often returning results in under a second. If you just want to see some histograms for a given site or origin, it can save you a lot of time compared to more comprehensive tools like PSI and WebPageTest, which can take several minutes to generate and show their reports.
 
