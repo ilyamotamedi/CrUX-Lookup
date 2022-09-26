@@ -35,4 +35,14 @@ const ensureConfig = (): void => {
   spinner.succeed('Configuration looks good');
 };
 
-export { localEnv, ensureEnv, ensureConfig, noKeySuffix };
+const maskedKey = (key: string): string => {
+  if (key.length < 8) return key;
+
+  const unmaskedKeyArray: string[] = key.split('');
+  const maskedKeyArray: string[] = unmaskedKeyArray.map((character, index) => {
+    return index < 2 || index > key.length - 4 ? character : '*';
+  });
+  return maskedKeyArray.join('');
+};
+
+export { localEnv, ensureEnv, ensureConfig, noKeySuffix, maskedKey };

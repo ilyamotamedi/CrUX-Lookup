@@ -1,7 +1,7 @@
 import fs from 'fs';
 import ora from 'ora';
 
-import { localEnv, ensureEnv, noKeySuffix } from '../utils/configUtil.js';
+import { localEnv, ensureEnv, maskedKey, noKeySuffix } from '../utils/configUtil.js';
 
 export const configCommand = (options: any): void => {
   const spinner = ora('Updating configuration').start();
@@ -33,7 +33,7 @@ export const configCommand = (options: any): void => {
       return;
     } else {
       const resultString = !!process.env.CRUX_API_KEY
-        ? `Currently stored CrUX API key is ${process.env.CRUX_API_KEY}`
+        ? `Currently stored CrUX API key is ${maskedKey(process.env.CRUX_API_KEY)}`
         : `Add a CrUX API key to your configuration by running \`crux-lookup config --updateKey <key>\`\n${noKeySuffix}`;
 
       spinner.succeed(resultString);
