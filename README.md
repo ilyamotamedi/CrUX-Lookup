@@ -41,10 +41,10 @@ Options:
 - `--updateKey <key>` Add/update a CrUX API key to use for queries
 - `--removeKey` Remove stored CrUX API key from configuration
 
-**Looking up a single URL or origin**
+**Looking up a URL or origin**
 
 ```shell
-$ crux-lookup single <url> # as of v0.3.0, the `single` subcommand is default; it can be omitted
+$ crux-lookup <url> -r # use -r or --origin for origin-level output
 ```
 
 Arguments:
@@ -53,10 +53,6 @@ Arguments:
 
 Options:
 
-- `-r, --origin` Lookup the submitted URL as an origin
+- `-r, --origin` Look up the origin of the submitted URL
 - `-j, --json` Output raw JSON from CrUX
 - `-o, --output <file>` Valid filepath for saving lookup results (forces JSON output)
-
-**Looking up multiple URLs and/or origins**
-
-_coming soon!_
